@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Order Desk</title>
+<meta name="description" content="A morning of restaurant orders by WhatsApp, text, voicemail and handwritten note, turned into ERP order lines. Every field points at its words; unclear lines wait for a rep.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfcfd">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1117">
+<link rel="icon" href="data:,">
+<link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></symbol>
+  <symbol id="i-none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2.2 2.2"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 16 16"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<main class="shell">
+  <div class="sheet-col">
+    <header class="top">
+      <p class="mark">Order Desk</p>
+      <h1>A morning of restaurant orders, entered line by line.</h1>
+      <p class="sub">Sample messages to a made-up seafood distributor: WhatsApp, a text, a voicemail and a handwritten note. Tap a line to see its words.</p>
+    </header>
+
+    <section class="reading" aria-labelledby="summary">
+      <p class="summary" id="summary" role="status"><span class="sum-main">Reading</span></p>
+      <button type="button" class="btn text why-btn" id="why-btn" aria-expanded="false" aria-controls="why">What ready means</button>
+      <p class="why-text" id="why" hidden>A line is ready when the customer, the item, the quantity, the unit and the delivery day are all found, each from the message's own words, the sender's number on file, or the catalogue. Anything else waits for a rep, with the reason. Nothing is guessed. Plain code does the reading here, not a model.</p>
+      <div id="groups" class="groups"></div>
+      <div class="actions after">
+        <button type="button" id="csv" class="btn primary">Download the ERP import</button>
+        <button type="button" id="cat-btn" class="btn text" aria-expanded="false" aria-controls="cat">Show the catalogue</button>
+      </div>
+      <p class="hint" id="csv-note">A generic CSV of the ready lines. A real version writes to your ERP's own import.</p>
+      <div id="cat" class="cat" hidden></div>
+    </section>
+  </div>
+
+  <aside class="evidence-col" id="side" aria-live="polite"></aside>
+
+  <section class="tool" id="own-tool" aria-labelledby="own-h">
+    <h2 id="own-h">Try your own message</h2>
+    <p class="tool-sub">Write an order the way a chef would text it. Plain code and a short shorthand list read it, not a model, so any word it cannot place holds the line.</p>
+    <label class="field-l" for="own-from">From</label>
+    <select id="own-from"></select>
+    <label class="field-l" for="own-text">Message</label>
+    <textarea id="own-text" rows="4" spellcheck="false" autocomplete="off">2 cs kumos and 8 lb halibut for fri. Also some tuna</textarea>
+    <div class="actions">
+      <button type="button" id="own-read" class="btn primary">Read it</button>
+      <button type="button" id="own-reset" class="btn text">Reset the morning</button>
+    </div>
+    <p id="own-error" class="error" role="alert" hidden></p>
+  </section>
+
+  <footer class="foot" id="foot">
+    <p>Built by Arnold Ikpemosi Adeyemi for seafood and food distributors. Made-up customers, catalogue and messages.</p>
+    <p><a href="https://ikpemosi.work">ikpemosi.work</a></p>
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

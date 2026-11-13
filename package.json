@@ -1,0 +1,9 @@
+{
+  "name": "order-desk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Restaurant order messages turned into ERP order lines, every field traced to its words, unclear lines held for a rep.",
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
